@@ -26,3 +26,10 @@ class Goblin(name: String = "小妖精(Goblin)",
     override val diceCount = 2
     override val diceSides = 8
             }
+class pekora(name: String = "小兔子(pekora)",
+             description: String = "一隻可愛的削兔",
+             healthPoints: Int = 999999) : Monster (name, description, healthPoints)
+{
+    override val diceCount = 2
+    override val diceSides = 8
+}
