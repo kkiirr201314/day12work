@@ -1,8 +1,8 @@
 import java.io.File
 class Player (_name:String,
-              var healthPoints: Int = 100,
+              override var healthPoints: Int = 100,
               var isBlessed: Boolean,
-              private val isImmortal: Boolean ){
+              private val isImmortal: Boolean ) : Fightable {
 
     var name = _name
         get() = "來自 $hometown 的 ${field.capitalize()}"
@@ -48,4 +48,12 @@ class Player (_name:String,
         }
     fun castFireball(numFireball: Int = 2) =
         println("橫空變出一杯火球" + "(x$numFireball)")
+
+    override val diceCount: Int
+        get() = TODO("Not yet implemented")
+    override val diceSides: Int
+        get() = TODO("Not yet implemented")
+    override fun attack(opponent: Fightable): Int {
+        TODO("Not yet implemented")
+    }
 }
