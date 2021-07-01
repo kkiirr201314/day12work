@@ -1,5 +1,6 @@
 import java.lang.IllegalArgumentException
 import java.lang.IllegalStateException
+import kotlin.system.exitProcess
 
 fun main() {
     Game.play()
@@ -78,6 +79,20 @@ object Game{
         }
         "打完了!!!"
     } ?: "怪物已清光"
+
+    //在這加入slay函數
+    private  fun slay(monster: Monster){
+        println("${monster.name} 被 ${monster.attack(player)} 攻擊損傷！")
+        println("${player.name} 被 ${player.attack(monster)} 攻擊損傷！")
+        if (player.healthPoints <= 0) {
+            println(">>>> 您已被 ${monster.name} 擊殺，再回家練練吧！ <<<<")
+            exitProcess(0)
+        }
+        if (monster.healthPoints <=0) {
+            println(">>>> ${monster.name} 已被您擊敗！ <<<<")
+            currentRoom.monster = null
+        }
+    }
 
     //在這加入quit函數
     private fun quit(player: Player) = "～　再見， ${player.name} ，歡迎再來玩　～ "
