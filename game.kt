@@ -75,13 +75,14 @@ object Game{
     //在這加入fight函數
     private fun fight() = currentRoom.monster?.let {
         while (player.healthPoints > 0 && it.healthPoints > 0){
+            slay(it)
             Thread.sleep(1000)
         }
         "打完了!!!"
     } ?: "怪物已清光"
 
     //在這加入slay函數
-    private  fun slay(monster: Monster){
+    private fun slay(monster: Monster){
         println("${monster.name} 被 ${monster.attack(player)} 攻擊損傷！")
         println("${player.name} 被 ${player.attack(monster)} 攻擊損傷！")
         if (player.healthPoints <= 0) {
