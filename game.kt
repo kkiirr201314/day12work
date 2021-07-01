@@ -48,6 +48,7 @@ object Game{
 
         fun processCommand() = when (command.toLowerCase()) {
             "move" -> move(argument)
+            "fight" -> fight()
             "map" -> printMap(player)
             "ring" -> ringBell("Gwong~~")
             "quit" -> quit(player)
