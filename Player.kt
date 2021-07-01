@@ -47,10 +47,12 @@ class Player (_name:String,
             else -> "情況不妙"
         }
     fun castFireball(numFireball: Int = 2) =
-        println("橫空變出一杯火球" + "(x$numFireball)")
+        println("橫空變出 $numFireball 杯火球")
 
     override val diceCount = 3
     override val diceSides = 6
+   // override val damageRoll: Int
+    //    get() = super.damageRoll
     override fun attack(opponent: Fightable): Int {
         val damageDealt = if (isBlessed) {
             damageRoll * 2

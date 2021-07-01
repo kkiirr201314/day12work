@@ -1,7 +1,5 @@
 import sun.security.x509.AccessDescription
-import kotlin.random.Random
-
-
+import java.util.*
 interface Fightable {
     var healthPoints: Int
     val diceCount: Int
@@ -20,3 +18,10 @@ abstract  class Monster(val name: String,val description: String, override var h
         return damageDealt
     }
 }
+
+class Goblin(name: String = "小妖精(Goblin)",
+            description: String = "一隻討厭的妖精",
+            healthPoints: Int = 30) : Monster (name, description, healthPoints)
+{
+
+            }
