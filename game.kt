@@ -71,6 +71,13 @@ object Game{
         {
             "Invalid direction: $directionInput."
         }
+    //在這加入fight函數
+    private fun fight() = currentRoom.monster?.let {
+        while (player.healthPoints > 0 && it.healthPoints > 0){
+            Thread.sleep(1000)
+        }
+        "打完了!!!"
+    } ?: "怪物已清光"
 
     //在這加入quit函數
     private fun quit(player: Player) = "～　再見， ${player.name} ，歡迎再來玩　～ "
