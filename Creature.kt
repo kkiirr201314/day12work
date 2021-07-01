@@ -1,4 +1,6 @@
+import sun.security.x509.AccessDescription
 import kotlin.random.Random
+
 
 interface Fightable {
     var healthPoints: Int
@@ -10,4 +12,11 @@ interface Fightable {
         }.sum()
 
     fun attack(opponent: Fightable): Int
+}
+abstract  class Monster(val name: String,val description: String, override var healthPoints: Int) : Fightable {
+    override fun attack(opponent: Fightable): Int{
+        val damageDealt = damageRoll
+        opponent.healthPoints -= damageDealt
+        return damageDealt
+    }
 }
